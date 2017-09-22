@@ -25,18 +25,35 @@
         
 
 //performing our AJEX GET request   
-
+     $("button").on("click", function(){
+         var gifWord = $(this).attr("data-letter");
+         var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
+        gifWord + "&api_key=HrBbC45mmSQAE22exVJxL7fziUXGYtC9&limit=2";
+         console.log(queryURL);
+         $.ajax({
+             url: queryURL,
+             method: "GET"
+         })
+         
+         .done(function(response){
+             var results = response.data;
+             for (var i = 0; i <results.length; i++){
+                 var sportsImage = $("<img>");
+                var imagesDiv = $("<div>");
+                 sportsImage.attr("src", results[i].images.fixed_height.url);            
+                 imagesDiv.append(sportsImage);
+                 $("#images").prepend(imagesDiv);
+                
+             }
+             
+            
+         })
+         
+         
+     } )
      
 
-     
-//adding GIFs to the gif holder tag
-     
-     
-     
-     
-     
-//creating new button from search bar     
-     
+ 
      
  
  
