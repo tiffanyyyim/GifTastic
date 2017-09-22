@@ -43,16 +43,12 @@
                  sportsImage.attr("src", results[i].images.fixed_height.url);            
                  imagesDiv.append(sportsImage);
                  $("#images").prepend(imagesDiv);
-                
-             }
-             
-            
-         })
-         
-         
-     } )
+             }         
+         })      
+     })
      
-
+//enter word into search bar and create new button from word
+     
  
      
  
