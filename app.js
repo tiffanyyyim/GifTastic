@@ -3,6 +3,8 @@
 //going through the sports array and creating buttons for each 
         var sports = ["nfl", "nba", "mlb", "tennis", "nhl", "soccer"];
         
+        var searchTerm = "";
+     
         for (var i = 0; i < sports.length; i++) {
 
         // Inside the loop...
@@ -47,8 +49,17 @@
          })      
      })
      
-//enter word into search bar and create new button from word
-     
+//enter word into search bar and create new button from word, add the sports array
+     $("#run-search").on("click", function(event){
+         event.preventDefault();
+         searchTerm = $("#sport").val().trim();
+         console.log(searchTerm);
+         var newButton = $("<button>");
+         newButton.addClass("letter-button letter letter-button-color");
+         newButton.attr("data-letter", searchTerm);
+         newButton.text(searchTerm);
+         $("#buttons").append(newButton);                  
+     })
  
      
  
